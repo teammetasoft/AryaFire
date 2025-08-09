@@ -1,0 +1,113 @@
+<!DOCTYPE HTML>
+<html>
+
+<head>
+	<meta name="viewport" content="width=device-width,initial-scale=1,user-scalable=no">
+	<meta http-equiv="Content-type" content="text/html; charset=utf-8">
+	<title>Arya Fire and Safety</title>
+	<link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.6/css/bootstrap.min.css" />
+    <link rel="stylesheet"  href="css/main-styles.css" />
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/2.2.0/jquery.min.js"></script>
+  <script src="https://code.jquery.com/ui/1.11.1/jquery-ui.min.js"></script>	
+<script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.6/js/bootstrap.min.js"></script>
+  
+	
+</head>
+
+<body>
+  <div class="container">
+   <h2 align="center">Arya Fire &amp; Safety</h2><br />
+      <p align="center">Quotation Inventory</p><br />
+   <div id="login-form">
+    <br />
+    <form method="post">
+     <div class="form-group">
+      <label>Username</label>
+      <input type="text" name="username" id="username" class="form-control" />
+     </div>
+     <div class="form-group">
+      <label>Password</label>
+      <input type="password" name="password" id="password" class="form-control" />
+     </div>
+     <div class="form-group">
+      <input type="button" name="login" id="login" class="btn btn-primary btn-block btn-lg" value="Login" />
+     </div>
+     <div id="error"></div>
+    </form>
+    <br />
+   </div>
+  </div>
+    <footer class="navbar navbar-default navbar-fixed-bottom">
+            <h6 class="text-center">App Developed by www.omsolutions.biz</h6>
+		</footer>
+ </body>
+</html>
+<script>
+   setInterval(function(){checkLogin()},2000);
+      function checkLogin(){
+         var login_status = window.localStorage["logged_in"];
+          var login_user = window.localStorage["user"];
+      if (login_status=="true"){
+        if(login_user!=0){
+             if(login_user==1){ window.location.replace("manager.html").hide().fadeIn(1500); }
+             else{window.location.replace("user.html").hide().fadeIn(1500); }
+         }else{ window.location.replace("admin.html").hide().fadeIn(1500); }
+        console.log("logged in");
+         
+          
+      } else{console.log("logged out");}
+          
+      }
+    
+  $(document).ready(function(){
+ $('#login').click(function(){
+  var username = $('#username').val();
+  var password = $('#password').val();
+  if($.trim(username).length > 0 && $.trim(password).length > 0)
+  {
+   $.ajax({
+    url:"login.php",
+    method:"POST",
+    data:{username:username, password:password},
+    cache:false,
+    beforeSend:function(){
+     $('#login').val("connecting...");
+    },
+    dataType:"json",
+    success:function(data)
+    {
+     if(data.token!="")
+     {
+        
+       window.localStorage["token"]=data.token;
+       window.localStorage["name"]=data.first_name; 
+       window.localStorage["logged_in"]="true";
+       window.localStorage["user"]=data.user;
+       if(data.user!=0){
+             if(data.user==1){ window.location.replace("manager.html").hide().fadeIn(1500); }
+             else{window.location.replace("user.html").hide().fadeIn(1500); }
+         }else{ window.location.replace("admin.html").hide().fadeIn(1500); }
+     }
+     else
+     {
+         window.localStorage["logged_in"]="false";
+      var options = {
+       distance: '40',
+       direction:'left',
+       times:'3'
+      }
+      $("#login-form").effect("shake", options, 800);
+      $('#login').val("Login");
+      $('#error').html("<span class='text-danger'>Invalid username or Password</span>");
+     }
+    }
+   });
+  }
+  else
+  {
+$('#error').html("<div class='alert alert-danger'>Please fill Username and Password</div>");
+  }
+ });
+});
+
+</script>

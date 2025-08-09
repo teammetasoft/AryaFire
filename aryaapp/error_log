@@ -1,0 +1,4 @@
+[22-Feb-2020 15:14:28 Asia/Kolkata] PHP Notice:  Undefined index: length in /home/aryafire/domains/aryafireandsafety.com/public_html/aryaapp/remotefetch.php on line 27
+[22-Feb-2020 15:14:28 Asia/Kolkata] PHP Notice:  Undefined index: start in /home/aryafire/domains/aryafireandsafety.com/public_html/aryaapp/remotefetch.php on line 29
+[22-Feb-2020 15:14:28 Asia/Kolkata] PHP Notice:  Undefined index: length in /home/aryafire/domains/aryafireandsafety.com/public_html/aryaapp/remotefetch.php on line 29
+[22-Feb-2020 15:14:28 Asia/Kolkata] PHP Notice:  Undefined index: draw in /home/aryafire/domains/aryafireandsafety.com/public_html/aryaapp/remotefetch.php on line 88

@@ -1,0 +1,338 @@
+<!doctype html>
+<html>
+	<head>
+       <meta http-equiv="Content-type" content="text/html; charset=utf-8">
+        <meta name="viewport" content="width=device-width,initial-scale=1,user-scalable=no">
+		<title>Arya Fire and Safety</title>
+            
+     <link rel="stylesheet"  href="css/main-styles.css" />
+<link rel="stylesheet" href="https://cdn.datatables.net/responsive/2.2.3/css/responsive.dataTables.min.css" />
+ <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.6/css/bootstrap.min.css" />
+<link rel="stylesheet" href="https://cdn.datatables.net/1.10.19/css/jquery.dataTables.min.css" />
+<script src="https://ajax.googleapis.com/ajax/libs/jquery/2.2.0/jquery.min.js"></script>
+ 
+  <script src="https://cdn.datatables.net/1.10.19/js/jquery.dataTables.min.js"></script>
+  <script src="https://cdn.datatables.net/1.10.19/js/dataTables.bootstrap.min.js"></script> 
+        <script src="https://cdn.datatables.net/responsive/2.2.3/js/dataTables.responsive.min.js"></script> 
+        <script src="https://cdn.datatables.net/responsive/2.2.3/js/responsive.bootstrap.min.js"></script>
+        <script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.6/js/bootstrap.min.js"></script>
+    <script>
+        if(window.localStorage["token"]==""){ window.location.replace("index.html");}
+        </script>
+	</head>
+	<body>
+   <div id="mySidenav" class="sidenav">
+  <a href="javascript:void(0)" class="btn btn-lg closebtn glyphicon glyphicon-menu-left" onclick="closeNav()"></a>
+  <p>Welcome <span id="user">!</span></p><br/>
+  <ul class="list-group">
+  
+  <li class="list-group-item">New Product<button type="button" id="add_button" data-toggle="modal" data-target="#productModal" class="btn btn-success">Add</button></li> 
+  <li class="list-group-item">Log Out  <button type="button" id="logout_button"class="btn btn-danger"> <span class="glyphicon glyphicon-log-out"></span></button></li> 
+</ul>
+  
+ 
+
+</div>
+<div class="navbar navbar-default navbar-fixed-top">
+    <!-- Use any element to open the sidenav -->
+<span id="menu" class="btn btn-lg glyphicon glyphicon-menu-hamburger" onclick="openNav()"></span>
+        </div>
+
+
+<!-- Add all page content inside this div if you want the side nav to push page content to the right (not used if you only want the sidenav to sit on top of the page -->
+<div id="main">
+  		<div class="container">
+            <div><h1 align="center">Arya Fire &amp; Safety</h1></div>
+			
+			<div class="box" id="main-body">
+				
+				<table id="product_data" class="table table-striped table-bordered dt-responsive nowrap" style="width:100%" >
+					<thead>
+						<tr>
+							<th width="5%">Product Image</th>
+							<th width="5%">Product</th>
+                            <th width="5%">Price</th>
+							<th width="5%">Supplier</th>
+                            <th width="5%">Quotation Date</th>
+                            <th width="5%">Tax</th>
+                            <th width="5%">HSN Code</th>
+                            <th width="5%">Product Code</th>
+                            <th width="40%">Specification</th>
+                            <th width="5%">Edit</th>
+							<th width="5%">Delete</th>
+                            <th width="5%">Modified Date</th>
+							<th width="5%">Edited By User</th>
+						</tr>
+					</thead>
+				</table>
+				
+			</div>
+            
+		</div>
+    </div>
+        <footer class="navbar navbar-default navbar-fixed-bottom">
+            <h6 class="text-center">App Developed by www.omsolutions.biz</h6>
+		</footer>
+	</body>
+</html>
+
+<div id="productModal" class="modal fade">
+	<div class="modal-dialog">
+		<form method="post" id="product_form" enctype="multipart/form-data">
+			<div class="modal-content">
+				<div class="modal-header">
+					<button type="button" class="close" data-dismiss="modal">&times;</button>
+					<h4 class="modal-title">Add Product</h4>
+				</div>
+				<div class="modal-body">
+					<label>Enter Product Name</label>
+					<input type="text" name="product_name" id="product_name" class="form-control" />
+					<br />
+					<label>Enter Supplier Name</label>
+					<input type="text" name="supplier_name" id="supplier_name" class="form-control" />
+					<br />
+                    <label>Enter Product Description</label>
+                    <textarea name="product_detail" id="product_detail" class="form-control" >Type product description</textarea>
+					<br />
+                    <label>Enter Product Price</label>
+					<input type="number" step="0.01"name="product_price" id="product_price" class="form-control" />
+					<br />
+                    <label>Enter Tax %</label>
+					<input type="number" step="0.01"name="tax" id="tax" class="form-control" />
+                    <br />
+                    <label>Enter HSN Code</label>
+                    <input type="text" name="hsn_code" id="hsn_code" class="form-control" />
+                    <br />
+                    <label>Enter Product Code</label>
+                    <input type="text" name="product_code" id="product_code" class="form-control" />
+					<br />
+                    <label>Enter Quotation Date</label>
+					<input type="date" name="quote_date" id="quote_date" class="form-control" />
+					<br />
+					<label>Select Product Image</label>
+					<input type="file" name="product_image" id="product_image" />
+					<span id="product_uploaded_image"></span>
+				</div>
+				<div class="modal-footer">
+					<input type="hidden" name="product_id" id="product_id" />
+					<input type="hidden" name="operation" id="operation" />
+					<input type="submit" name="action" id="action" class="btn btn-success" value="Add" />
+					<button type="button" class="btn btn-default" data-dismiss="modal">Close</button>
+				</div>
+			</div>
+		</form>
+	</div>
+</div>
+
+<script type="text/javascript" language="javascript" >
+
+function init() {
+    //Check Token
+    $.ajax({
+    url:"check_token.php",
+    method:"POST",
+    data:{token: window.localStorage["token"] , name: window.localStorage["name"] },
+    cache:false,
+    dataType:"json",
+    success:function(data)
+    {
+         
+     window.localStorage["token"]=data.token;
+     window.localStorage["name"]=data.name; 
+     window.localStorage["logged_in"]=data.logged_in;
+     window.localStorage["user"]=data.user;
+   
+     }
+    
+   });
+    ////Check Token End////////////////////////          
+   
+  
+    
+}    
+    
+ /* Set the width of the side navigation to 250px */
+function openNav() {
+  document.getElementById("mySidenav").style.width = "200px";
+    
+}
+
+/* Set the width of the side navigation to 0 */
+function closeNav() {
+  document.getElementById("mySidenav").style.width = "0";
+}
+    
+$(document).ready(function(){
+   
+setInterval(function(){
+         init()
+ },18000000); 
+ setInterval(function(){
+         checkLogin()
+ },2000); 
+ 
+    
+	function checkLogin(){
+	if (window.localStorage["logged_in"]!="true"){
+        document.getElementById("menu").style.visibility="hidden";
+        console.log("login Failed");
+       document.getElementById("main-body").innerHTML='<div class="alert alert-danger">Login is Required to Use this App</div><button  id="login_button" type="button" class="btn btn-primary btn-block btn-lg">Login</button';
+       // alert("Login Required");
+        document.getElementById("login_button").onclick= function(){  window.location.replace("index.html");  }
+    
+    }else{
+      console.log("login success");
+        document.getElementById("user").innerHTML=window.localStorage["name"]+ '!';
+    }
+    }
+   
+      if (window.localStorage["logged_in"]=="true"){
+          init()
+         var dataTable = $('#product_data').DataTable({
+       
+		"processing":true,
+		"serverSide":true,
+		"order":[],
+		"ajax":{
+			url:"fetch.php",
+			type:"POST",
+            dataType:"json"
+		},
+		"columnDefs":[
+			{
+				"targets":[0, 6, 7],
+				"orderable":false
+			}
+            
+		],
+       
+         responsive: {
+            details: {
+                display: $.fn.dataTable.Responsive.display.modal( {
+                    header: function ( row ) {
+                        var data = row.data();
+                        return 'Details for '+data[1]+' of '+data[3];
+                    }
+                } ),
+                renderer: $.fn.dataTable.Responsive.renderer.tableAll( {
+                    tableClass: 'table'
+                } )
+            }
+        }
+
+	});
+      }
+	$('#logout_button').click(function(){
+        document.getElementById("mySidenav").style.width = "0";
+        document.getElementById("menu").style.visibility="hidden";
+    window.localStorage["logged_in"]="false";
+      window.localStorage["token"]="";
+        window.localStorage["name"]="";
+        window.localStorage["user"]="";
+        window.location.replace("index.html");
+	});
+    
+    $('#add_button').click(function(){
+         document.getElementById("mySidenav").style.width = "0";
+		$('#product_form')[0].reset();
+		$('.modal-title').text("Add Product");
+		$('#action').val("Add");
+		$('#operation').val("Add");
+		$('#product_uploaded_image').html('');
+	});
+    
+    
+	$(document).on('submit', '#product_form', function(event){
+		event.preventDefault();
+		var productName = $('#product_name').val();
+		var supplierName = $('#supplier_name').val();
+		var extension = $('#product_image').val().split('.').pop().toLowerCase();
+		if(extension != '')
+		{
+			if(jQuery.inArray(extension, ['gif','png','jpg','jpeg']) == -1)
+			{
+				alert("Invalid Image File");
+				$('#product_image').val('');
+				return false;
+			}
+		}	
+		if(productName != '' && supplierName != '')
+		{
+			$.ajax({
+				url:"insert.php",
+				method:'POST',
+				data:new FormData(this),
+				contentType:false,
+				processData:false,
+				success:function(data)
+				{
+					alert(data);
+                    //console.log();
+					$('#product_form')[0].reset();
+					$('#productModal').modal('hide');
+					dataTable.ajax.reload();
+				}
+			});
+		}
+		else
+		{
+			alert("Product Name and Supplier Fields are Required");
+		}
+	});
+	
+	$(document).on('click', '.update', function(){
+    
+		var product_id = $(this).attr("id");
+         
+        $.ajax({
+			url:"fetch_single.php",
+			method:"POST",
+			data:{product_id:product_id},
+			dataType:"json",
+			success:function(data)
+			{
+				$('#productModal').modal('toggle');
+                 
+				$('#product_name').val(data.product_name);
+				$('#supplier_name').val(data.supplier_name);
+                $('#quote_date').val(data.quote_date);
+                $('#product_detail').val(data.product_detail);
+                $('#product_price').val(data.product_price);
+                $('#hsn_code').val(data.hsn_code);
+                $('#product_code').val(data.product_code);
+                $('#tax').val(data.tax);
+				$('.modal-title').text("Edit Product");
+				$('#product_id').val(product_id);
+				$('#product_uploaded_image').html(data.product_image);
+				$('#action').val("Edit");
+				$('#operation').val("Edit");
+			}
+		})
+	});
+	
+	$(document).on('click', '.delete', function(){
+		var product_id = $(this).attr("id");
+		if(confirm("Are you sure you want to delete this?"))
+		{
+            console.log(product_id);
+			$.ajax({
+				url:"delete.php",
+				method:"POST",
+				data:{product_id:product_id},
+				success:function(data)
+				{
+					alert(data);
+					dataTable.ajax.reload();
+				}
+			});
+		}
+		else
+		{
+			return false;	
+		}
+	});
+  
+	
+	
+});
+</script>

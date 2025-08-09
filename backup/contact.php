@@ -1,0 +1,176 @@
+<!doctype html>
+<html>
+   <head>
+      <title>aryafireandsafety</title>
+      <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=0">
+      <link href="css/bootstrap.css" rel="stylesheet">
+      <link href="css/style.css" rel="stylesheet">
+      <link href="css/font-awesome.css" rel="stylesheet">
+      <link href="css/lightbox.css" rel="stylesheet">
+      <link href="css/jquery.bxslider.css" rel="stylesheet">
+      <link href="https://fonts.googleapis.com/css?family=Lora" rel="stylesheet">
+      <link href="https://fonts.googleapis.com/css?family=Lora|Lovers+Quarrel|Quintessential" rel="stylesheet">
+      <!--script start here-->
+      <script src="js/jquery.js"></script>
+      <script src="js/bootstrap.js"></script>
+      <script src="js/gallery-filter.js"></script>
+      <script src="js/lightbox.js"></script>
+      <script src="js/jquery.bxslider.min.js"></script>
+      <!--script end here-->
+   </head>
+   <body>
+      <!-- header section start here -->
+      <section class="container-fluid hero-banner">
+         <nav class="navbar header-navigation">
+            <div class="container">
+               <div class="navbar-header">
+                  <button type="button" class="navbar-toggle collapsed res-button" data-toggle="collapse" data-target="#bs-example-navbar-collapse-1" aria-expanded="false">
+                  <span class="sr-only">Toggle navigation</span>
+                  <a class="res-button" href="#navigation-main" aria-label="Skip to main navigation">
+                  <i class="fa fa-bars" aria-hidden="true"></i>
+                  </a>
+                  </button>
+                  <a href="#"><img src="images/logo_afs.jpg"/></a>
+               </div>
+               <!-- Collect the nav links, forms, and other content for toggling -->
+               <div class="collapse navbar-collapse" id="bs-example-navbar-collapse-1">
+                  <ul class="nav navbar-nav navbar-right navigation-menu">
+                     <li><a href="index.html">Home</a></li>
+                     <li><a href="about.html">About Us</a></li>
+                     <li><a href="services.html">Our Services</a></li>
+                     <li><a href="products.html">Our Products</a></li>
+                     <li><a href="contact.html">Contact</a></li>
+                  </ul>
+               </div>
+            </div>
+         </nav>
+      </section>
+      <!-- header section end here -->
+      <!-- contact us section start here -->
+      <section class="container-fluid sec-bg-black">
+         <div class="container banner-sec-bg">
+            <div class="row">
+               <div class="col-lg-12">
+                  <div class="sec-banner-about-us">
+                     <h1>Contact us</h1>
+                     <h5><i class="fa fa-quote-left" aria-hidden="true"></i> We're here to help. <i class="fa fa-quote-right" aria-hidden="true"></i></h5>
+                  </div>
+               </div>
+               <div class="col-lg-12 text-center">
+                  <div class="contact-heading">
+                     <h4>Get In Touch</h4>
+                  </div>
+               </div>
+               <div class="col-lg-12 col-md-12 col-sm-12">
+                 <p>Our friendly customer service representatives are committed to answering all your questions and meeting any need you may have. </p>
+                 <br/>
+                  <?php
+
+if(!$_POST) exit;
+
+$email = $_POST['email'];
+
+
+//$error[] = preg_match('/\b[A-Z0-9._%-]+@[A-Z0-9.-]+\.[A-Z]{2,4}\b/i', $_POST['email']) ? '' : 'INVALID EMAIL ADDRESS';
+if(!eregi("^[a-z0-9]+([_\\.-][a-z0-9]+)*" ."@"."([a-z0-9]+([\.-][a-z0-9]+)*)+"."\\.[a-z]{2,}"."$",$email )){
+	$error.="Invalid email address entered";
+	$errors=1;
+}
+if($errors==1) echo $error;
+else{
+	$values = array ('name','email','message');
+	$required = array('name','email','message');
+	
+	$to = "info@aryafireandsafety.com";
+	$email_subject = $_POST['subject'];
+	$email_content = "Message:\n";
+	$from = $_POST['email'];
+$headers = "From:" . $from;
+	foreach($values as $key => $value){
+	  if(in_array($value,$required)){
+		if ($key != 'subject' && $key != 'company') {
+		  if( empty($_POST[$value]) ) { echo 'PLEASE FILL IN REQUIRED FIELDS'; exit; }
+		}
+		$email_content .= $value.': '.$_POST[$value]."\n";
+	  }
+	}
+	 
+	if(@mail($to,$email_subject,$email_content, $headers)) {
+		echo '<p><strong>Message sent!</strong></p>'; 
+		
+	} else {
+		echo '<p><strong>ERROR! try again.</strong></p>';
+	}
+}
+?>
+               </div>
+            </div>
+         </div>
+         <div class="address-map container">
+            <iframe src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d3887.815635245902!2d74.8095063143754!3d12.983640890848005!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x3ba35191a76ab8c7%3A0xbaf9cd481a8be191!2sArya+Fire+%26+Safety!5e0!3m2!1sen!2sin!4v1509023954770" width="100%" height="450" frameborder="0" style="border:0" allowfullscreen></iframe>
+         </div>
+      </section>
+      <!-- contact us section end here -->
+      <!-- footer start here -->
+      <Section class="bg-footer">
+         <div class="container">
+            <div class="row">
+               <div class="col-lg-4 col-md-4 col-sm-4">
+                  <div class="footer-sec-heading">
+                     <h6>Stay Connected</h6>
+                     <div class="media">
+                        <div class="media-left foot-icon">
+                           <img src="images/map.png">
+                        </div>
+                        <div class="media-body">
+                           <p>Max Plaza, MRPL Road, Kana - Surathkal, Mangalore - 574219 India</p>
+                        </div>
+                     </div>
+                     <div class="media">
+                        <div class="media-left foot-icon">
+                           <img src="images/phone.png">
+                        </div>
+                        <div class="media-body">
+                           <p>Phone: +91-9591-250263, +91-9591-258363, +91-9535-110263, +91-9902-685609</p>
+                        </div>
+                     </div>
+                     <div class="media">
+                        <div class="media-left foot-icon">
+                           <img src="images/envelope.png">
+                        </div>
+                        <div class="media-body">
+                           <p>info@aryafireandsafety.com</p>
+                        </div>
+                     </div>
+                  </div>
+               </div>
+               <div class="col-lg-4 col-md-4 col-sm-4">
+                  <div class="footer-sec-heading">
+                     <h6>Our Commitment</h6>
+                     <p>We strive to deliver a level of service that exceeds the expectations of our customers. </p>
+                     <p>If you have any questions about our products or services, please do not hesitate to contact us. We have friendly, knowledgeable representatives available to assist you.</p>
+                  </div>
+               </div>
+               <div class="col-lg-4 col-md-4 col-sm-4">
+                  <div class="footer-sec-heading">
+                     <h6>Get In Touch</h6>
+                     <ul>
+                        <li class="social-icon-circle"><a href="#"><i class="fa fa-facebook" aria-hidden="true"></i></a></li>
+                        <li class="social-icon-circle"><a href="#"><i class="fa fa-twitter" aria-hidden="true"></i></a></li>
+                     </ul>
+                  </div>
+               </div>
+            </div>
+         </div>
+      </section>
+      <Section class="bg-black">
+         <div class="container">
+            <p>Arya Fire & Safety. All Rights Reserved. | Website by: <a href="http://omsolutions.biz/">[omsolutions.biz]</a></p>
+         </div>
+      </section>
+      <!-- footer end here -->
+      <!-- java script start here -->
+      <!-- java script end here -->
+   </body>
+</html>
+</html>
