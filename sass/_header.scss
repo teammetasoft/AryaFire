@@ -2,14 +2,17 @@
   Header
 -----------------------*/
 .header {
+    background: #2C2C2C;
+    border-bottom: 1px solid #343434;
 
     &.header-normal {
-        border-bottom: 1px solid rgba(0, 0, 0, 0.1);
+        border-bottom: 1px solid #343434;
     }
 }
 
 .header__top {
-    background: #25282C;
+    background: #2C2C2C;
+    border-bottom: 1px solid #343434;
 }
 
 .header__top__left {
@@ -78,7 +81,7 @@
         top: 0;
         width: 1px;
         height: 100%;
-        background: rgba(0, 0, 0, 0.1);
+        background: #343434;
         content: "";
     }
 
@@ -88,9 +91,9 @@
 }
 
 .header__menu {
+    background-color: #222222 !important;
 
     ul {
-
         li {
             list-style: none;
             display: inline-block;
@@ -98,8 +101,8 @@
             position: relative;
 
             &.active {
-
-                a {
+                > a {
+                    color: $primary-color !important;
                     
                     &:after {
                         -webkit-transform: scale(1);
@@ -109,8 +112,8 @@
             }
 
             &:hover {
-
-                a {
+                > a {
+                    color: $primary-color !important;
                     
                     &:after {
                         -webkit-transform: scale(1);
@@ -129,44 +132,20 @@
                 margin-right: 0;
             }
 
-            .dropdown {
-                position: absolute;
-                left: 0;
-                top: 110px;
-                width: 150px;
-                background: $heading-color;
-                text-align: left;
-                padding: 2px 0;
-                z-index: 9;
-                opacity: 0;
-                visibility: hidden;
-                @include transition(all, .3s);
-
-                li {
-                    display: block;
-                    margin-right: 0;
-
-                    a {
-                        font-size: 14px;
-                        color: $white-color;
-                        font-weight: 500;
-                        padding: 8px 20px;
-                        text-transform: capitalize;
-
-                        &:after {
-                            display: none;
-                        }
-                    }
-                }
-            }
-
-            a {
-                font-size: 18px;
-                color: #8d8d8d;
-                font-weight: 700;
+            > a {
+                font-family: 'Poppins', sans-serif !important;
+                font-size: 16px !important;
+                color: #CCCCCC !important;
+                font-weight: 400 !important;
                 display: block;
                 padding: 28px 0 26px;
                 position: relative;
+                transition: color 0.3s ease;
+                text-decoration: none !important;
+
+                &:hover {
+                    color: $primary-color !important;
+                }
 
                 &:after {
                     position: absolute;
@@ -179,6 +158,48 @@
                     @include transition(all, .3s);
                     -webkit-transform: scale(0);
                     transform: scale(0);
+                }
+            }
+
+            .dropdown {
+                position: absolute;
+                left: 0;
+                top: 110px;
+                width: 180px;
+                background: $heading-color;
+                text-align: left;
+                padding: 2px 0;
+                z-index: 9;
+                opacity: 0;
+                visibility: hidden;
+                border-radius: 5px;
+                @include transition(all, .3s);
+
+                li {
+                    display: block;
+                    margin-right: 0;
+
+                    &:hover {
+                        background: rgba(255, 255, 255, 0.1);
+                    }
+
+                    a {
+                        font-family: 'Poppins', sans-serif !important;
+                        font-size: 14px !important;
+                        color: #CCCCCC !important;
+                        font-weight: 400 !important;
+                        padding: 8px 20px;
+                        text-transform: capitalize;
+                        text-decoration: none !important;
+
+                        &:hover {
+                            color: $primary-color !important;
+                        }
+
+                        &:after {
+                            display: none;
+                        }
+                    }
                 }
             }
         }
@@ -200,7 +221,12 @@
 
         a {
             font-size: 20px;
-            color: #353535;
+            color: #cccccc;
+            transition: color 0.3s ease;
+
+            &:hover {
+                color: #ffffff;
+            }
         }
     }
 }
@@ -211,4 +237,5 @@
 
 .canvas__open {
     display: none;
+    color: #ffffff;
 }

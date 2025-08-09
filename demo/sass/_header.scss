@@ -98,9 +98,7 @@
             position: relative;
 
             &.active {
-
                 a {
-                    
                     &:after {
                         -webkit-transform: scale(1);
                         transform: scale(1);
@@ -109,9 +107,8 @@
             }
 
             &:hover {
-
                 a {
-                    
+
                     &:after {
                         -webkit-transform: scale(1);
                         transform: scale(1);
@@ -161,9 +158,9 @@
             }
 
             a {
-                font-size: 18px;
-                color: #8d8d8d;
-                font-weight: 700;
+                font-size: 14px;
+                color: #cccccc !important;
+                font-weight: 400;
                 display: block;
                 padding: 28px 0 26px;
                 position: relative;
@@ -188,7 +185,7 @@
 .header__right {
     text-align: right;
     padding: 28px 0 23px;
-    
+
     li {
         list-style: none;
         margin-right: 18px;
