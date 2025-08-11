@@ -2,22 +2,30 @@
   Header
 -----------------------*/
 .header {
+    background: #2C2C2C;
+    border-bottom: 1px solid #343434;
 
     &.header-normal {
-        border-bottom: 1px solid rgba(0, 0, 0, 0.1);
+        border-bottom: 1px solid #343434;
     }
 }
 
 .header__top {
-    background: #25282C;
+    background: #2C2C2C;
+    border-bottom: 1px solid #343434;
 }
 
 .header__top__left {
     padding: 12px 0;
 
+    ul {
+        display: flex;
+        align-items: center;
+    }
+
     li {
         font-size: 15px;
-        color: $white-color;
+        color: #ffffff;
         list-style: none;
         display: inline-block;
         margin-right: 30px;
@@ -40,7 +48,7 @@
 
     .map-btn {
         font-size: 15px;
-        color: $white-color;
+        color: #ffffff;
         font-weight: 500;
         display: inline-block;
         margin-right: 30px;
@@ -58,8 +66,13 @@
 
         a {
             font-size: 15px;
-            color: $white-color;
+            color: #ffffff;
             margin-right: 15px;
+            transition: color 0.3s ease;
+
+            &:hover {
+                color: #5F67FF;
+            }
 
             &:last-child {
                 margin-right: 0;
@@ -78,104 +91,145 @@
         top: 0;
         width: 1px;
         height: 100%;
-        background: rgba(0, 0, 0, 0.1);
+        background: #343434;
         content: "";
     }
 
     a {
         display: inline-block;
     }
+
+    img {
+        max-height: 50px; // Adjust as needed
+        width: auto;
+    }
 }
 
 .header__menu {
+    > ul {
+        list-style: none;
+        padding: 0;
+        margin: 0;
+        display: flex;
+        justify-content: flex-end;
 
-    ul {
-
-        li {
+        > li {
             list-style: none;
             display: inline-block;
             margin-right: 40px;
             position: relative;
 
+            &:last-child {
+                margin-right: 0;
+            }
+
+            // Active state styling - MOST IMPORTANT PART
             &.active {
-                a {
+                > a {
+                    color: #ffffff !important; // Force white color for active link
+                    
                     &:after {
-                        -webkit-transform: scale(1);
-                        transform: scale(1);
+                        -webkit-transform: scale(1) !important;
+                        transform: scale(1) !important;
                     }
+                }
+
+                // Keep white on hover when active
+                &:hover > a {   
+                    color: #ffffff !important;
                 }
             }
 
+            // Hover state for non-active items
             &:hover {
-                a {
-
+                > a {
+                    color: #ffffff;
+                    
                     &:after {
                         -webkit-transform: scale(1);
                         transform: scale(1);
                     }
                 }
 
+                // Show dropdown on hover
                 .dropdown {
-                    top: 81px;
+                    top: 100%;
                     opacity: 1;
                     visibility: visible;
                 }
             }
 
-            &:last-child {
-                margin-right: 0;
-            }
-
-            .dropdown {
-                position: absolute;
-                left: 0;
-                top: 110px;
-                width: 150px;
-                background: $heading-color;
-                text-align: left;
-                padding: 2px 0;
-                z-index: 9;
-                opacity: 0;
-                visibility: hidden;
-                @include transition(all, .3s);
-
-                li {
-                    display: block;
-                    margin-right: 0;
-
-                    a {
-                        font-size: 14px;
-                        color: $white-color;
-                        font-weight: 500;
-                        padding: 8px 20px;
-                        text-transform: capitalize;
-
-                        &:after {
-                            display: none;
-                        }
-                    }
-                }
-            }
-
-            a {
+            > a {
                 font-size: 14px;
-                color: #cccccc !important;
+                color: #cccccc;
                 font-weight: 400;
                 display: block;
                 padding: 28px 0 26px;
                 position: relative;
+                text-decoration: none;
+                transition: all 0.3s ease;
 
+                // Underline effect
                 &:after {
                     position: absolute;
                     left: 0;
                     bottom: 0;
                     width: 100%;
                     height: 5px;
-                    background: $primary-color;
+                    background: #5F67FF; // Using the blue color from your theme
                     content: '';
-                    @include transition(all, .3s);
+                    transition: all 0.3s ease;
                     -webkit-transform: scale(0);
                     transform: scale(0);
+                }
+
+                // Click state
+                &:active {
+                    color: #ffffff;
+                }
+            }
+
+            // Dropdown Menu Styling
+            .dropdown {
+                position: absolute;
+                top: 120%;
+                left: 0;
+                min-width: 250px;
+                background: #2C2C2C;
+                border: 1px solid #343434;
+                border-radius: 4px;
+                opacity: 0;
+                visibility: hidden;
+                transition: all 0.3s ease;
+                z-index: 1000;
+                box-shadow: 0 5px 15px rgba(0, 0, 0, 0.3);
+
+                li {
+                    display: block;
+                    margin: 0;
+                    border-bottom: 1px solid #343434;
+
+                    &:last-child {
+                        border-bottom: none;
+                    }
+
+                    a {
+                        padding: 12px 20px;
+                        font-size: 13px;
+                        color: #cccccc;
+                        display: block;
+                        transition: all 0.3s ease;
+                        border-radius: 0;
+
+                        &:after {
+                            display: none; // Remove underline effect for dropdown items
+                        }
+
+                        &:hover {
+                            color: #ffffff;
+                            background: #343434;
+                        }
+                    }
                 }
             }
         }
@@ -197,7 +251,12 @@
 
         a {
             font-size: 20px;
-            color: #353535;
+            color: #cccccc;
+            transition: color 0.3s ease;
+
+            &:hover {
+                color: #ffffff;
+            }
         }
     }
 }
@@ -208,4 +267,22 @@
 
 .canvas__open {
     display: none;
+    color: #ffffff;
 }
+
+// Mobile responsive adjustments
+@media (max-width: 991px) {
+    .header__menu {
+        display: none;
+    }
+    
+    .canvas__open {
+        display: block;
+        float: right;
+        padding: 28px 0;
+        font-size: 20px;
+        cursor: pointer;
+    }
+}
+
+

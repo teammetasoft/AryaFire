@@ -320,7 +320,7 @@ ol {
 	justify-content: center;
 }
 
-/*---------------------
+/* ---------------------
   Header
 -----------------------*/
 
@@ -389,7 +389,7 @@ ol {
 }
 
 .header {
-	background-color: #000;
+	background-color: #222222;
 }
 
 .header__logo {
@@ -406,6 +406,10 @@ ol {
 	height: 100%;
 	background: rgba(0, 0, 0, 0.1);
 	content: "";
+}
+
+.header .header__menu>ul>li.active>a {
+	color: #ffffff !important;
 }
 
 .header__logo a {
@@ -475,7 +479,7 @@ ol {
 }
 
 .header__menu ul li a {
-	font-size: 16px;
+	font-size: 14px;
 	color: #cccccc;
 	font-weight: 400;
 	display: block;
@@ -484,8 +488,8 @@ ol {
 }
 
 .header__menu ul li a:hover {
-		color:white;
-		/* font-weight: 500; */
+	color: white;
+	/* font-weight: 500; */
 
 }
 
@@ -542,26 +546,26 @@ ol {
 -----------------------*/
 
 .hero {
-  padding-top: 70px;
-  padding-bottom:70px;
+	padding-top: 70px;
+	padding-bottom: 70px;
 
 
-  .hero__text {
-    max-width: 600px;
-  }
+	.hero__text {
+		max-width: 600px;
+	}
 
-  .hero__btns {
-    display: flex;
-    flex-direction: row;
-    gap: 20px;
-  }
+	.hero__btns {
+		display: flex;
+		flex-direction: row;
+		gap: 20px;
+	}
 
-  .hero__text h2 {
-    font-size: 60px;
-    color: #ffffff;
-    font-weight: 700;
-    margin-bottom: 20px;
-  }
+	.hero__text h2 {
+		font-size: 60px;
+		color: #ffffff;
+		font-weight: 700;
+		margin-bottom: 20px;
+	}
 }
 
 
@@ -579,68 +583,226 @@ ol {
 }
 
 /*---------------------
-  Choose Us
+  About Us
 -----------------------*/
 
-.chooseus {
+.aboutus-container {
+	max-width: 1200px;
+	margin: 0 auto;
+	display: grid;
+	grid-template-columns: 1fr 1fr;
+	gap: 60px;
+	align-items: center;
+	min-height: 100vh;
+}
+
+.images-section {
+	display: flex;
+	gap: 20px;
 	position: relative;
 }
 
-.chooseus__pic {
-	width: 48%;
+.firefighters-image {
+	flex: 1;
+	position: relative;
+	overflow: hidden;
+	height: 600px;
+}
+
+.firefighters-image1 {
+	flex: 1;
+	position: relative;
+	overflow: hidden;
+	height: 600px;
+	display: flex;
+	flex-direction: column;
+	align-items: center;
+	justify-content: center;
+}
+
+.firefighters-image img {
+	width: 100%;
+	height: 100%;
+	object-fit: cover;
+	display: block;
+}
+
+
+.group-firefighters {
+	position: relative;
+}
+
+.single-firefighter {
+	position: relative;
+}
+
+/* Dark overlay for single firefighter image */
+.dark-overlay {
 	position: absolute;
+	top: 0;
 	left: 0;
-	top: -60px;
-	height: 600px;
+	right: 0;
+	bottom: 0;
+	background: linear-gradient(135deg, rgba(0, 0, 0, 0.3) 0%, rgba(0, 0, 0, 0.1) 100%);
 }
 
-.chooseus__text {
-	-webkit-box-shadow: 0px 10px 40px rgba(0, 0, 0, 0.08);
-	box-shadow: 0px 10px 40px rgba(0, 0, 0, 0.08);
-	padding: 100px 0px 95px 160px;
-	height: 600px;
+.stats-badge {
+	position: absolute;
+	bottom: 30px;
+	left: 30px;
+	background: white;
+	padding: 20px 25px;
+	/* border-radius: 12px; */
+	box-shadow: 0 8px 25px rgba(0, 0, 0, 0.15);
+	display: flex;
+	align-items: center;
+	gap: 15px;
+	z-index: 10;
 }
 
-.chooseus__text .section-title {
-	text-align: left;
+.heart-icon {
+	width: 45px;
+	height: 45px;
+	background: #dc3545;
+	border-radius: 50%;
+	display: flex;
+	align-items: center;
+	justify-content: center;
+	color: white;
+	font-size: 20px;
+	font-weight: bold;
+}
+
+.stats-text {
+	display: flex;
+	flex-direction: column;
+}
+
+.stats-number {
+	font-size: 32px;
+	font-weight: bold;
+	color: #333;
+	line-height: 1;
+}
+
+.stats-label {
+	font-size: 14px;
+	color: #666;
+	margin-top: 4px;
+	font-weight: 500;
+}
+
+.content-section {
+	padding-left: 20px;
+}
+
+.about-label {
+	color: #dc3545;
+	font-size: 16px;
+	font-weight: 600;
+	margin-bottom: 20px;
+	text-transform: uppercase;
+	letter-spacing: 1px;
+}
+
+.main-heading {
+	font-size: 48px;
+	font-weight: 900;
+	color: #333;
+	line-height: 1.1;
+	margin-bottom: 30px;
+	text-transform: uppercase;
+	letter-spacing: -1px;
+}
+
+.description {
+	font-size: 18px;
+	line-height: 1.7;
+	color: #666;
 	margin-bottom: 40px;
+	font-weight: 400;
 }
 
-.chooseus__text ul {
-	margin-bottom: 28px;
+.learn-more-btn {
+	background: transparent;
+	border: 2px solid #dc3545;
+	color: #dc3545;
+	padding: 15px 30px;
+	font-size: 16px;
+	font-weight: 600;
+	border-radius: 8px;
+	cursor: pointer;
+	transition: all 0.3s ease;
+	text-transform: uppercase;
+	letter-spacing: 0.5px;
 }
 
-.chooseus__text ul li {
-	list-style: none;
-	font-size: 15px;
-	color: #353535;
-	font-weight: 700;
-	line-height: 36px;
+.learn-more-btn:hover {
+	background: #dc3545;
+	color: white;
+	transform: translateY(-2px);
+	box-shadow: 0 8px 20px rgba(220, 53, 69, 0.3);
 }
 
-.chooseus__text ul li span {
-	font-size: 17px;
-	color: #fe0000;
-	margin-right: 6px;
-	position: relative;
-	top: 3px;
+/* Responsive Design */
+@media (max-width: 768px) {
+	.container {
+		grid-template-columns: 1fr;
+		gap: 40px;
+		padding: 40px 20px;
+	}
+
+	.images-section {
+		flex-direction: column;
+		height: auto;
+	}
+
+	.firefighters-image {
+		height: 300px;
+	}
+
+	.main-heading {
+		font-size: 36px;
+	}
+
+	.content-section {
+		padding-left: 0;
+		text-align: center;
+	}
+
+	.stats-badge {
+		position: static;
+		margin-top: 20px;
+		align-self: flex-start;
+	}
 }
 
-.chooseus__text .primary-btn {
-	padding: 14px 35px 12px;
+@media (max-width: 480px) {
+	.main-heading {
+		font-size: 28px;
+	}
+
+	.description {
+		font-size: 16px;
+	}
+
+	.firefighters-image {
+		height: 250px;
+	}
 }
 
 /*---------------------
   client
 -----------------------*/
-.client_sec {
+/* .client_sec {
 	padding-top: 60px;
 	padding-bottom: 20px;
-}
+	margin-bottom: 10px;
+} */
 
 .client__slider {
 	background: #ffffff;
-	padding: 30px 60px 50px;
+	/* padding: 30px 60px 50px; */
 }
 
 .client__slider.owl-carousel .owl-dots {
@@ -649,12 +811,13 @@ ol {
 }
 
 .client__slider.owl-carousel .owl-dots button {
-	display: inline-block;
+	/* display: inline-block;
 	height: 10px;
 	width: 10px;
 	background: #b5b5b5;
 	border-radius: 50%;
-	margin-right: 10px;
+	margin-right: 10px; */
+	display: none;
 }
 
 .client__slider.owl-carousel .owl-dots button:last-child {
@@ -691,9 +854,14 @@ ol {
 -----------------------*/
 
 .counter {
-	padding-top: 70px;
-	padding-bottom: 70px;
-	margin-top: -120px;
+	padding-top: 50px;
+	padding-bottom: 50px;
+	margin-top: 100px;
+	display: flex;
+}
+
+.counter .counter-container{
+margin-top: 30px;
 }
 
 .counter .section-title h2 {
@@ -719,7 +887,7 @@ ol {
 
 .counter__item__text h2 {
 	font-size: 46px;
-	color: #fe0000;
+	color: #E00000;
 	font-weight: 700;
 	display: inline-block;
 	line-height: 38px;
@@ -728,7 +896,7 @@ ol {
 
 .counter__item__text strong {
 	font-size: 46px;
-	color: #fe0000;
+	color: #E00000;
 	font-weight: 700;
 	display: inline-block;
 	line-height: 30px;

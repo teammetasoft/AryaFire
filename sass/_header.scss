@@ -91,8 +91,6 @@
 }
 
 .header__menu {
-    background-color: #222222 !important;
-
     ul {
         li {
             list-style: none;
@@ -100,21 +98,28 @@
             margin-right: 40px;
             position: relative;
 
+            // Active state styling
             &.active {
-                > a {
-                    color: $primary-color !important;
-                    
+                a {
+                    color: #ffffff !important; // White color for active link
+
                     &:after {
                         -webkit-transform: scale(1);
                         transform: scale(1);
                     }
                 }
+
+                // Keep white on hover when active
+                &:hover a {
+                    color: #ffffff !important;
+                }
             }
 
+            // Hover state
             &:hover {
-                > a {
-                    color: $primary-color !important;
-                    
+                a {
+                    color: #ffffff; // White on hover
+
                     &:after {
                         -webkit-transform: scale(1);
                         transform: scale(1);
@@ -132,21 +137,17 @@
                 margin-right: 0;
             }
 
-            > a {
-                font-family: 'Poppins', sans-serif !important;
-                font-size: 16px !important;
-                color: #CCCCCC !important;
-                font-weight: 400 !important;
+            a {
+                font-size: 14px;
+                color: #cccccc;
+                font-weight: 400;
                 display: block;
                 padding: 28px 0 26px;
                 position: relative;
-                transition: color 0.3s ease;
-                text-decoration: none !important;
+                text-decoration: none; // Remove underline
+                @include transition(all, .3s);
 
-                &:hover {
-                    color: $primary-color !important;
-                }
-
+                // Underline effect
                 &:after {
                     position: absolute;
                     left: 0;
@@ -159,47 +160,10 @@
                     -webkit-transform: scale(0);
                     transform: scale(0);
                 }
-            }
 
-            .dropdown {
-                position: absolute;
-                left: 0;
-                top: 110px;
-                width: 180px;
-                background: $heading-color;
-                text-align: left;
-                padding: 2px 0;
-                z-index: 9;
-                opacity: 0;
-                visibility: hidden;
-                border-radius: 5px;
-                @include transition(all, .3s);
-
-                li {
-                    display: block;
-                    margin-right: 0;
-
-                    &:hover {
-                        background: rgba(255, 255, 255, 0.1);
-                    }
-
-                    a {
-                        font-family: 'Poppins', sans-serif !important;
-                        font-size: 14px !important;
-                        color: #CCCCCC !important;
-                        font-weight: 400 !important;
-                        padding: 8px 20px;
-                        text-transform: capitalize;
-                        text-decoration: none !important;
-
-                        &:hover {
-                            color: $primary-color !important;
-                        }
-
-                        &:after {
-                            display: none;
-                        }
-                    }
+                // Click/active state
+                &:active {
+                    color: #ffffff;
                 }
             }
         }
@@ -209,7 +173,7 @@
 .header__right {
     text-align: right;
     padding: 28px 0 23px;
-    
+
     li {
         list-style: none;
         margin-right: 18px;
