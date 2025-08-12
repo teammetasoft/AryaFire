@@ -43,8 +43,8 @@
     });
 
     /*------------------
-		Navigation
-	--------------------*/
+        Navigation
+    --------------------*/
     $(".header__menu").slicknav({
         prependTo: '#mobile-menu-wrap',
         allowParentLinks: true
@@ -57,119 +57,132 @@
         loop: true,
         margin: 0,
         items: 5,
-        dots: true,
+        dots: false,
         smartSpeed: 1200,
         autoHeight: false,
         autoplay: true,
-        responsive:{
-            0:{
-                items:2
+        responsive: {
+            0: {
+                items: 2
             },
-            600:{
-                items:4
+            600: {
+                items: 4
             },
-            1000:{
-                items:5
+            1000: {
+                items: 5
             }
         }
     });
     $(".product__slider").owlCarousel({
         loop: true,
-        margin: 0,
+        margin: 20,
         items: 4,
-        dots: true,
+        dots: false,
+        nav: false, // Disable default nav
         smartSpeed: 1200,
         autoHeight: false,
-        autoplay: true,
-        responsive:{
-            0:{
-                items:2
+        autoplay: false,
+        responsive: {
+            0: {
+                items: 1
             },
-            600:{
-                items:3
+            600: {
+                items: 2
             },
-            1000:{
-                items:4
+            1000: {
+                items: 4
             }
         }
     });
+
+    // Add custom navigation
+    $('.slider-next').click(function () {
+        $('.product__slider').trigger('next.owl.carousel');
+    });
+
+    $('.slider-prev').click(function () {
+        $('.product__slider').trigger('prev.owl.carousel');
+    });
+
+
+    
     $(".training__slider").owlCarousel({
         loop: true,
         margin: 0,
         items: 4,
-        nav:true,
+        nav: true,
         dots: true,
         smartSpeed: 1200,
         autoHeight: false,
         autoplay: true,
-        responsive:{
-            0:{
-                items:1
+        responsive: {
+            0: {
+                items: 1
             },
-            600:{
-                items:3
+            600: {
+                items: 3
             },
-            1000:{
-                items:4
+            1000: {
+                items: 4
             }
         }
     });
     /*------------------
-		Magnific
-	--------------------*/
+        Magnific
+    --------------------*/
     $('.video-popup').magnificPopup({
         type: 'video'
     });
 
     /*------------------
-		Single Product
-	--------------------*/
-	$('.shop__details__thumb__pic .pt').on('click', function(){
+        Single Product
+    --------------------*/
+    $('.shop__details__thumb__pic .pt').on('click', function () {
         $('.shop__details__thumb__pic .pt').removeClass('active');
-		$(this).addClass('active');
-		var imgurl = $(this).data('imgbigurl');
-		var bigImg = $('.product__big__img').attr('src');
-		if(imgurl != bigImg) {
-			$('.product__big__img').attr({src: imgurl});
-		}
+        $(this).addClass('active');
+        var imgurl = $(this).data('imgbigurl');
+        var bigImg = $('.product__big__img').attr('src');
+        if (imgurl != bigImg) {
+            $('.product__big__img').attr({ src: imgurl });
+        }
     });
 
 
 
-  /*   $('.vision__item').on('mouseenter', function (e) {
-        var bg = $(this).data('changebg');
-        $('.vision-changebg').animate({ opacity: 0.9 }, 100, function(){
-            $('.vision-changebg').css('background-image', 'url(' + bg + ')');
-        });
-        $('.vision-changebg').delay(100).animate({ opacity: 1 }, 100);
-    }); */
+    /*   $('.vision__item').on('mouseenter', function (e) {
+          var bg = $(this).data('changebg');
+          $('.vision-changebg').animate({ opacity: 0.9 }, 100, function(){
+              $('.vision-changebg').css('background-image', 'url(' + bg + ')');
+          });
+          $('.vision-changebg').delay(100).animate({ opacity: 1 }, 100);
+      }); */
 
-    
+
     /*-------------------
-		Quantity change
-	--------------------- */
+        Quantity change
+    --------------------- */
     var proQty = $('.pro-qty');
-	proQty.prepend('<span class="dec qtybtn">-</span>');
-	proQty.append('<span class="inc qtybtn">+</span>');
-	proQty.on('click', '.qtybtn', function () {
-		var $button = $(this);
-		var oldValue = $button.parent().find('input').val();
-		if ($button.hasClass('inc')) {
-			var newVal = parseFloat(oldValue) + 1;
-		} else {
-			// Don't allow decrementing below zero
-			if (oldValue > 0) {
-				var newVal = parseFloat(oldValue) - 1;
-			} else {
-				newVal = 0;
-			}
-		}
-		$button.parent().find('input').val(newVal);
+    proQty.prepend('<span class="dec qtybtn">-</span>');
+    proQty.append('<span class="inc qtybtn">+</span>');
+    proQty.on('click', '.qtybtn', function () {
+        var $button = $(this);
+        var oldValue = $button.parent().find('input').val();
+        if ($button.hasClass('inc')) {
+            var newVal = parseFloat(oldValue) + 1;
+        } else {
+            // Don't allow decrementing below zero
+            if (oldValue > 0) {
+                var newVal = parseFloat(oldValue) - 1;
+            } else {
+                newVal = 0;
+            }
+        }
+        $button.parent().find('input').val(newVal);
     });
-    
+
     /*-------------------
-		Nice Select
-	--------------------- */
+        Nice Select
+    --------------------- */
     $("select").niceSelect();
 
     /*------------------
