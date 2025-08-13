@@ -338,24 +338,24 @@ ol {
   Header
 -----------------------*/
 
-#contact{
+#contact {
 	display: inline-block;
 	font-size: 15px;
 	font-weight: 700;
 	padding: 14px 25px 14px;
 	color: white;
-	background-color:#fe0000 ;
+	background-color: #fe0000;
 	/* background: transparent; */
 	/* border: 2px solid #fe0000; */
 }
 
-#contact:hover{
+#contact:hover {
 	display: inline-block;
 	font-size: 15px;
 	font-weight: 700;
 	padding: 14px 25px 14px;
 	color: white;
-	background-color:#cf2a2a ;
+	background-color: #cf2a2a;
 	/* background: transparent; */
 	/* border: 2px solid #fe0000; */
 }
@@ -731,16 +731,21 @@ ol {
 }
 
 .heart-icon {
-	width: 45px;
-	height: 45px;
-	background: #dc3545;
-	border-radius: 50%;
 	display: flex;
 	align-items: center;
 	justify-content: center;
-	color: white;
-	font-size: 20px;
-	font-weight: bold;
+}
+
+.heart-icon i {
+	font-size: 45px;
+	color: #E00000;
+	display: flex;
+	align-items: center;
+	justify-content: center;
+	width: 45px;
+	height: 45px;
+	background: #FFF5F5;
+	border-radius: 50%;
 }
 
 .stats-text {
@@ -750,16 +755,16 @@ ol {
 
 .stats-number {
 	font-size: 32px;
-	font-weight: bold;
-	color: #333;
+	font-weight: 500px;
+	color: black;
 	line-height: 1;
 }
 
 .stats-label {
-	font-size: 14px;
-	color: #666;
+	font-size: 18px;
+	color: #444444;
 	margin-top: 4px;
-	font-weight: 500;
+	font-weight: 400;
 }
 
 .content-section {
@@ -1499,7 +1504,7 @@ ol {
 }
 
 .services__text {
-	padding: 35px 35px 84px 35px;
+	/* padding: 35px 35px 84px 35px; */
 }
 
 .services__text img {
@@ -2451,8 +2456,8 @@ ol {
 } */
 
 .chooseus__text ul li .icon_check {
-    color: #E00000;
-    margin-right: 10px;
+	color: #E00000;
+	margin-right: 10px;
 }
 
 .chooseus__pic {
