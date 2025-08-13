@@ -13,10 +13,17 @@
     <link rel="shortcut icon" href="favicon.ico" type="image/x-icon">
     <link rel="icon" href="favicon.ico" type="image/x-icon">
 
+
     <!-- Google Font -->
     <link href="https://fonts.googleapis.com/css2?family=Public+Sans:wght@400;500;600;700;800;900&display=swap"
         rel="stylesheet">
-    <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/font-awesome/4.5.0/css/font-awesome.min.css">
+    <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;500;600;700&display=swap"
+        rel="stylesheet">
+    <!-- Replace the old Font Awesome with this -->
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.2/css/all.min.css">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.15.4/css/all.min.css">
+
+
     <!-- Css Styles -->
     <link rel="stylesheet" href="css/bootstrap.min.css" type="text/css">
     <link rel="stylesheet" href="css/font-awesome.min.css" type="text/css">
@@ -75,33 +82,38 @@
         <i class="fa fa-whatsapp my-float"></i>
     </a>
     <!-- Header Section Begin -->
-     <header class="header">
+    <header class="header">
         <!-- Top Information Bar -->
         <div class="header__top">
-            <div class="container">
+            <div class="container ">
                 <div class="row">
+                    <div class="col-lg-6">
+                        <div class="header__top__right">
+                            <div class="footer__copyright__social">
+                                <a href="https://www.facebook.com/aryafireandsafety/" target="_blank"><span
+                                        class="social_facebook"></span></a>
+                                <a href="https://twitter.com/AryaSafety" target="_blank" class="twitter"><span
+                                        class="social_twitter"></span></a>
+                                <a href="https://www.instagram.com/aryafireandsafety" target="_blank"
+                                    class="instagram"><span class="social_instagram"></span></a>
+                            </div>
+                        </div>
+
+                    </div>
                     <div class="col-lg-6">
                         <div class="header__top__left">
                             <ul style="list-style: none; padding: 0; margin: 0;">
                                 <li>
-                                    <i class="fa fa-envelope" style="margin-right: 8px; color: #fff;"></i>
-                                    info@aryafireandsafety.com
-                                </li>
-                                <li>
                                     <i class="fa fa-phone" style="margin-right: 8px; color: #fff;"></i>
                                     (+91) 9591258363
                                 </li>
+                                <li>
+                                    <i class="fa fa-envelope" style="margin-right: 8px; color: #fff;"></i>
+                                    info@aryafireandsafety.com
+                                </li>
                             </ul>
                         </div>
-                    </div>
-                    <div class="col-lg-6">
-                        <div class="header__top__right">
-                            <div class="header__right__social">
-                                <a href="#"><i class="fa fa-instagram"></i></a>
-                                <a href="#"><i class="fa fa-linkedin"></i></a>
-                                <a href="#"><i class="fa fa-facebook"></i></a>
-                            </div>
-                        </div>
+
                     </div>
                 </div>
             </div>
@@ -118,7 +130,7 @@
                 <div class="col-lg-9">
                     <nav class="header__menu text-right">
                         <ul>
-                            <li class="active"><a href="./index.html">Home</a></li>
+                            <li><a href="./index.html">Home</a></li>
                             <li><a href="./about.html">About Us</a></li>
                             <li><a href="./services.html">Services</a></li>
                             <li><a href="./products.html">Products</a>
@@ -133,7 +145,7 @@
                                     <li><a href="./road-safety.html">Road & Traffic Safety</a></li>
                                 </ul>
                             </li>
-                            <li><a href="./training.html">Training</a></li>
+                            <li class="active"><a href="./training.html">Training</a></li>
                             <li><a href="./clients.html">Clients</a></li>
                             <li><a href="./contact.html">Contact Us</a></li>
                         </ul>
@@ -162,17 +174,18 @@
     <!-- Breadcrumb Section End -->
     <!-- aboutus Section Begin -->
     <section class="chooseus">
-        <div class="container-fluid">
+        <div class="container">
             <div class="row">
-                <div class="chooseus__pic set-bg" data-setbg="img/training/Fire & Safety Training 2.jpeg"></div>
-                <div class="col-lg-7 offset-lg-5 p-0">
+                <div class="col-lg-6">
+                    <img src="img/training/Fire & Safety Training 2.jpeg" alt="Training" class="chooseus__pic">
+                </div>
+                <div class="col-lg-6">
                     <div class="chooseus__text">
                         <div class="section-title">
                             <h2>Training Programs</h2>
-                            <p>As we provide protection under any circumstances, we
-                                know the importance of training in various sectors. Thus we constantly
-                                provide complete training modules to the industry workers like
-                            </p>
+                            <p>As we provide protection under any circumstances, we know the importance of training in
+                                various sectors. Thus we constantly provide complete training modules to the industry
+                                workers like</p>
                         </div>
                         <ul>
                             <li><span class="icon_check"></span> Firefighting and First Aid Training</li>

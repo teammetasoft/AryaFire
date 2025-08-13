@@ -338,6 +338,28 @@ ol {
   Header
 -----------------------*/
 
+#contact{
+	display: inline-block;
+	font-size: 15px;
+	font-weight: 700;
+	padding: 14px 25px 14px;
+	color: white;
+	background-color:#fe0000 ;
+	/* background: transparent; */
+	/* border: 2px solid #fe0000; */
+}
+
+#contact:hover{
+	display: inline-block;
+	font-size: 15px;
+	font-weight: 700;
+	padding: 14px 25px 14px;
+	color: white;
+	background-color:#cf2a2a ;
+	/* background: transparent; */
+	/* border: 2px solid #fe0000; */
+}
+
 .header.header-normal {
 	border-bottom: 1px solid rgba(0, 0, 0, 0.1);
 }
@@ -571,7 +593,7 @@ ol {
 	display: none;
 }
 
-.header__menu ul li:last-child a {
+/* .header__menu ul li:last-child a {
 	background-color: #E00000;
 	padding: 10px 24px;
 	font-size: 16px;
@@ -583,7 +605,8 @@ ol {
 .header__menu ul li:last-child a:hover {
 	background-color: #cc0000;
 	color: #ffffff;
-}
+} */
+
 
 /*---------------------
   Hero
@@ -1467,7 +1490,8 @@ ol {
 -----------------------*/
 
 .services {
-	padding-bottom: 160px;
+	padding-bottom: 120px;
+	padding-top: 120px;
 }
 
 .services__pic img {
@@ -1793,8 +1817,8 @@ ol {
 -----------------------*/
 
 .products {
-	padding-top: 60px;
-	padding-bottom: 160px;
+	padding-top: 120px;
+	padding-bottom: 120px;
 }
 
 .product__item {
@@ -2417,9 +2441,53 @@ ol {
 	min-width: 100%;
 }
 
+.chooseus {
+	padding: 80px 0;
+}
+
+/* .chooseus .row {
+	display: flex;
+	align-items: center;
+} */
+
+.chooseus__text ul li .icon_check {
+    color: #E00000;
+    margin-right: 10px;
+}
+
 .chooseus__pic {
-	background-image: url("../img/training.jpg");
-	background-color: #25d366;
+	width: 100%;
+	height: 100%;
+}
+
+.chooseus__pic img {
+	width: 100%;
+	height: 100%;
+	object-fit: cover;
+}
+
+.chooseus__text {
+	padding: 30px;
+	background: #fff;
+}
+
+.chooseus__text .section-title {
+	text-align: left;
+	margin-bottom: 30px;
+}
+
+.chooseus__text .section-title h2 {
+	font-size: 34px;
+	margin-bottom: 20px;
+}
+
+.chooseus__text ul {
+	padding-left: 0;
+}
+
+.chooseus__text ul li {
+	list-style: none;
+	margin-bottom: 15px;
 }
 
 /*---------------------
