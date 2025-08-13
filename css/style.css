@@ -462,6 +462,7 @@ ol {
 
 .header .header__menu>ul>li.active>a {
 	color: #ffffff !important;
+	font-weight: 900;
 }
 
 .header__logo a {
@@ -628,7 +629,7 @@ ol {
 	}
 
 	.hero__text h2 {
-		font-size: 60px;
+		font-size: 40px;
 		color: #ffffff;
 		font-weight: 700;
 		margin-bottom: 20px;
@@ -775,7 +776,7 @@ ol {
 	color: #E00000;
 	font-size: 16px;
 	font-weight: 600;
-	margin-bottom: 20px;
+	margin-bottom: 14px;
 	/* text-transform: uppercase; */
 	letter-spacing: 1px;
 }
@@ -1847,6 +1848,7 @@ ol {
 	color: #E00000;
 	font-weight: 600;
 	font-size: 16px;
+	margin-bottom: 14px;
 }
 
 .services_text_container h3 {
@@ -2121,7 +2123,7 @@ ol {
 	color: #E00000;
 	font-weight: 600;
 	font-size: 16px;
-	margin-bottom: 10px;
+	margin-bottom: 14px;
 }
 
 .products_text_container h3 {
@@ -2155,6 +2157,9 @@ ol {
 @media only screen and (max-width: 768px) {
 	.products_text_container {
 		padding: 0 15px;
+	}
+	.products{
+		padding: 10px;
 	}
 
 	.products_text_container h3 {
