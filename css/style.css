@@ -452,7 +452,7 @@ ol {
 .header__logo {
 	padding: 0;
 	position: relative;
-	width: 60px;
+	width: 100px;
 	height: 100%;
 	text-align: center;
 	display: flex;
@@ -3101,7 +3101,7 @@ ol {
 		cursor: pointer;
 		position: absolute;
 		right: 15px;
-		top: 22px;
+		top: 5px;
 	}
 
 	.offcanvas-menu-overlay {
@@ -3372,7 +3372,7 @@ ol {
 		cursor: pointer;
 		position: absolute;
 		right: 15px;
-		top: 22px;
+		top: 10px;
 	}
 
 	.offcanvas-menu-overlay {
