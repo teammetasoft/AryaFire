@@ -1167,7 +1167,7 @@ ol {
 	font-size: 18px;
 	margin-bottom: 20px;
 }
-.footer__address .company_name {
+.footer__address >h3 {
 	color: #E00000;
 	font-size: 20px;
 	font-weight: 600;
