@@ -161,10 +161,11 @@ ol {
 	padding: 14px 25px 14px;
 	color: #ffffff;
 	background: #fe0000;
+	transition: background 0.3s ease;
 }
 
 .primary-btn:hover {
-	background: #f44336;
+	background: #cc0000;
 	color: white;
 	/* transform: translateY(-2px); */
 	/* box-shadow: 0 8px 20px rgba(220, 53, 69, 0.3); */
@@ -178,13 +179,14 @@ ol {
 	color: #ffffff;
 	background: transparent;
 	border: 2px solid #fe0000;
+	transition: background 0.3s ease;
 }
 
 .primary-btn1:hover {
 	background: #fe0000;
 	color: white;
-	transform: translateY(-2px);
-	box-shadow: 0 8px 20px rgba(220, 53, 69, 0.3);
+	/* transform: translateY(-2px); */
+	/* box-shadow: 0 8px 20px rgba(220, 53, 69, 0.3); */
 }
 
 .site-btn {
@@ -345,6 +347,7 @@ ol {
 	padding: 14px 25px 14px;
 	color: white;
 	background-color: #fe0000;
+	transition: background 0.3s ease;
 	/* background: transparent; */
 	/* border: 2px solid #fe0000; */
 }
@@ -452,7 +455,7 @@ ol {
 .header__logo {
 	padding: 0;
 	position: relative;
-	width: 100px;
+	width: 130px;
 	height: 100%;
 	text-align: center;
 	display: flex;
@@ -460,6 +463,12 @@ ol {
 	align-items: center;
 
 
+}
+
+.header__menu {
+	display: flex;
+	justify-content: end;
+	align-items: center;
 }
 
 .header .header__menu>ul>li.active>a {
@@ -538,7 +547,7 @@ ol {
 	color: #cccccc;
 	font-weight: 400;
 	display: block;
-	padding: 45px 0 26px;
+	padding: 26px 0 26px;
 	position: relative;
 }
 
@@ -809,13 +818,14 @@ ol {
 	color: #fe0000;
 	background: transparent;
 	border: 2px solid #fe0000;
+	transition: background 0.3s ease;
 }
 
 .primary-btn2:hover {
-	background: #dc3545;
+	background: #cc0000;
 	color: white;
-	transform: translateY(-2px);
-	box-shadow: 0 8px 20px rgba(220, 53, 69, 0.3);
+	/* transform: translateY(-2px); */
+	/* box-shadow: 0 8px 20px rgba(220, 53, 69, 0.3); */
 }
 
 
@@ -1051,7 +1061,7 @@ ol {
 @media only screen and (max-width: 480px) {
 
 	.counter__item {
-	 margin-left: calc(50% - 100px);
+		margin-left: calc(50% - 100px);
 	}
 }
 
@@ -1243,8 +1253,8 @@ ol {
 }
 
 .footer__copyright__social a:hover {
-	border-color: #ff4444;
-	color: #ff4444;
+	border-color: #ff6666;
+	color: #ff6666;
 	transform: translateY(-2px);
 }
 
@@ -1852,8 +1862,11 @@ ol {
 	/* visibility: hidden; */
 	text-decoration: none;
 	border-radius: 4px;
+  transition: all 0.3s ease;
 
-
+}
+.product__item__text .price a:hover{
+  background-color: #E0E0E0;
 }
 
 /* Slider Navigation Buttons */
@@ -1875,6 +1888,7 @@ ol {
 	pointer-events: auto;
 	border: 1px solid #E00000;
 	background-color: white;
+	transition: background 0.3s, color 0.3s;
 }
 
 .slider-next:hover,
@@ -1958,9 +1972,10 @@ ol {
 	.products_text_container {
 		padding: 0 15px;
 	}
-.product_banner {
-	text-align: center;
-}
+
+	.product_banner {
+		text-align: center;
+	}
 
 
 	.products_text_container h3 {
@@ -3358,6 +3373,13 @@ ol {
 		padding-top: 10px;
 		padding-bottom: 10px;
 	}
+	.header .col-lg-3{
+		display: flex;
+	}
+
+	.header__logo {
+		width: 100px;
+	}
 
 	.canvas__open {
 		display: block;
@@ -3372,7 +3394,7 @@ ol {
 		cursor: pointer;
 		position: absolute;
 		right: 15px;
-		top: 10px;
+		top: 15px;
 	}
 
 	.offcanvas-menu-overlay {
